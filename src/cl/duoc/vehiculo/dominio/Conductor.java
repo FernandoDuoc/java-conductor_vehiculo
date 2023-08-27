@@ -6,23 +6,24 @@ public class Conductor {
     private String nombre;
     private String rut;
     private int edad ;
+    private boolean acom;
     private int cantAcomAdult;
     private int cantAcomNino;
 
-//Constructor    
-    public Conductor(String nombre, String rut, int edad, int cantAcomAdult, int cantAcomNino) {
+    //Constructor    
+    public Conductor(String nombre, String rut, int edad, boolean acom, int cantAcomAdult, int cantAcomNino) {
         this.nombre = nombre;
         this.rut = rut;
         this.edad = edad;
+        this.acom = acom;
         this.cantAcomAdult = cantAcomAdult;
         this.cantAcomNino = cantAcomNino;
     }
-
-//Constructor vacío    
+    
     public Conductor() {
     }
-    
-//Encapsulamiento
+
+    //Encapsulamiento
     public String getNombre() {
         return nombre;
     }
@@ -53,6 +54,16 @@ public class Conductor {
     }
 
 
+    public boolean isAcom() {
+        return acom;
+    }
+
+
+    public void setAcom(boolean acom) {
+        this.acom = acom;
+    }
+
+
     public int getCantAcomAdult() {
         return cantAcomAdult;
     }
@@ -72,15 +83,27 @@ public class Conductor {
         this.cantAcomNino = cantAcomNino;
     }
     
-//Metodos
+    //Metodos
     public void mostrarConductor(){
         System.out.println("DATOS DEL CONDUCTOR");
-        System.out.println("Nombre: "+this.nombre);
-        System.out.println("Rut: "+this.rut);
-        System.out.println("Edad: "+this.edad);
-        System.out.println("Acompañantes adultos: "+this.cantAcomAdult);
-        System.out.println("Acompañantes Menores: "+this.cantAcomNino);
+        System.out.println("Nombre: "+this.getNombre());
+        System.out.println("Rut: "+this.getRut());
+        System.out.println("Edad: "+this.getEdad());
+        System.out.println("Acompañantes adultos: "+this.getCantAcomAdult());
+        System.out.println("Acompañantes Menores: "+this.getCantAcomNino());
         
     }
     
+    public boolean esAcom (){
+        String res = "";
+        boolean varRespuesta = false;
+        
+        if(res.equals("si")){
+            return varRespuesta = true;
+            
+        }
+        
+        return varRespuesta;
+    }   
+        
 }
