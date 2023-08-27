@@ -68,7 +68,7 @@ public class Vehiculo {
         System.out.println("Marca: "+this.marca);
         System.out.println("Modelo: "+this.modelo);
         System.out.println("Patente: "+this.patente);
-        this.getConductor().mostrarConductor();
+        
         
     }
     
