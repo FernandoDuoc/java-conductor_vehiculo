@@ -1,28 +1,30 @@
-
 package cl.duoc.vehiculo.dominio;
 
-//Atributos
-public class Vehiculo {
+public class Vehiculo{
+    //Atributos 1
     private String marca;
     private String modelo;
     private String patente;
+    private int acomNino;
+    private int acomAdult;
     private Conductor conductor;
-
-//Constructor    
-    public Vehiculo(String marca, String modelo, String patente, Conductor conductor) {
+    
+    //Constructor vacío
+    public Vehiculo() {
+        this.conductor = new Conductor();
+    }
+    
+    //Constructor con parámetros
+    public Vehiculo(String marca, String modelo, String patente, int acomNino, int acomAdult, Conductor conductor) {
         this.marca = marca;
         this.modelo = modelo;
         this.patente = patente;
+        this.acomNino = acomNino;
+        this.acomAdult = acomAdult;
         this.conductor = conductor;
     }
 
-//Constructor vacío    
-    public Vehiculo() {
-        conductor = new Conductor(); //Instanciado Objeto conductor
-        
-    }
-    
-//Encapsulamiento
+    //Encapsulamiento
     public String getMarca() {
         return marca;
     }
@@ -53,6 +55,26 @@ public class Vehiculo {
     }
 
 
+    public int getAcomNino() {
+        return acomNino;
+    }
+
+
+    public void setAcomNino(int acomNino) {
+        this.acomNino = acomNino;
+    }
+
+
+    public int getAcomAdult() {
+        return acomAdult;
+    }
+
+
+    public void setAcomAdult(int acomAdult) {
+        this.acomAdult = acomAdult;
+    }
+
+
     public Conductor getConductor() {
         return conductor;
     }
@@ -62,14 +84,32 @@ public class Vehiculo {
         this.conductor = conductor;
     }
     
-//Metodos
-    public void mostrarVehiculo() {
-        System.out.println("DATOS DEL VEHÍCULO");
+    //Metodos
+    public void mostrar(){
+        System.out.println("DATOS DEL VEHICULO");
         System.out.println("Marca: "+this.marca);
         System.out.println("Modelo: "+this.modelo);
         System.out.println("Patente: "+this.patente);
+        System.out.println("Acompañantes: "+(this.acomAdult+this.acomNino));
+        this.getConductor().mostrar();    
+    
+    }
+    
+    public void total(){
+        int VARBASE = 3000;
+        int varPasajero = this.acomAdult+this.acomNino;
+        int varTotal = 0;
         
-        
+        if (varPasajero == 0){
+            varTotal = (int) (VARBASE * 0.8);
+        }else if(acomNino > 0 && acomAdult == 0){
+            varTotal = (int) ((VARBASE + this.acomNino * 1000) * 0.8);
+        }else {
+            int varTotalNino = this.acomNino * 1000;
+            int varTotalAdult = this.acomAdult * 1000;
+            varTotal = VARBASE + varTotalNino + varTotalAdult;
+        }
+        System.out.println("El total a pagar es: $"+varTotal);
     }
     
 }

@@ -1,29 +1,24 @@
-
 package cl.duoc.vehiculo.dominio;
 
-//Atributos
-public class Conductor {
+public class Conductor{
+    
+    //atributos 1
     private String nombre;
     private String rut;
-    private int edad ;
-    private boolean acom;
-    private int cantAcomAdult;
-    private int cantAcomNino;
-
-    //Constructor    
-    public Conductor(String nombre, String rut, int edad, boolean acom, int cantAcomAdult, int cantAcomNino) {
+    private int edad;
+    
+    //Constructor vacío 2
+    public Conductor() {
+    }
+    
+    //Constructor con parámetros 3
+    public Conductor(String nombre, String rut, int edad) {
         this.nombre = nombre;
         this.rut = rut;
         this.edad = edad;
-        this.acom = acom;
-        this.cantAcomAdult = cantAcomAdult;
-        this.cantAcomNino = cantAcomNino;
-    }
-    
-    public Conductor() {
     }
 
-    //Encapsulamiento
+    //Encapsulamiento 4
     public String getNombre() {
         return nombre;
     }
@@ -52,58 +47,14 @@ public class Conductor {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-
-
-    public boolean isAcom() {
-        return acom;
-    }
-
-
-    public void setAcom(boolean acom) {
-        this.acom = acom;
-    }
-
-
-    public int getCantAcomAdult() {
-        return cantAcomAdult;
-    }
-
-
-    public void setCantAcomAdult(int cantAcomAdult) {
-        this.cantAcomAdult = cantAcomAdult;
-    }
-
-
-    public int getCantAcomNino() {
-        return cantAcomNino;
-    }
-
-
-    public void setCantAcomNino(int cantAcomNino) {
-        this.cantAcomNino = cantAcomNino;
-    }
     
-    //Metodos
-    public void mostrarConductor(){
-        System.out.println("DATOS DEL CONDUCTOR");
-        System.out.println("Nombre: "+this.getNombre());
-        System.out.println("Rut: "+this.getRut());
-        System.out.println("Edad: "+this.getEdad());
-        System.out.println("Acompañantes adultos: "+this.getCantAcomAdult());
-        System.out.println("Acompañantes Menores: "+this.getCantAcomNino());
+    //Metodos 5
+    public void mostrar(){
+        System.out.println("DATOS DEL CONDUCTOR:");
+        System.out.println("Nombre: "+this.nombre);
+        System.out.println("Rut: "+this.rut);
+        System.out.println("Edad: "+this.edad);
         
     }
     
-    public boolean esAcom (){
-        String res = "";
-        boolean varRespuesta = false;
-        
-        if(res.equals("si")){
-            return varRespuesta = true;
-            
-        }
-        
-        return varRespuesta;
-    }   
-        
 }
